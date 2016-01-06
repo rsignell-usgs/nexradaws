@@ -1,0 +1,9 @@
+name: nexradaws
+channels:
+    - jjhelmus
+dependencies:
+    - python=2.7
+    - boto
+    - pyart
+    - numpy
+    - matplotlib

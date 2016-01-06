@@ -50,7 +50,7 @@ print s3key
 # 
 # For further processing, it is helpful to have the file locally on disk.
 
-# In[3]:
+# In[ ]:
 
 # download to a local file, and read it
 localfile = tempfile.NamedTemporaryFile()
@@ -62,7 +62,7 @@ radar = pyart.io.read_nexrad_archive(localfile.name)
 # 
 # Here, I am using PyArt to display the lowest elevation scan data of all the moments.
 
-# In[4]:
+# In[ ]:
 
 # display the lowest elevation scan data
 display = pyart.graph.RadarDisplay(radar)
@@ -93,7 +93,7 @@ plt.show()
 # 
 # Not all the reflectivity above is because of weather echoes. Most of the data are actually bioscatter (insects and birds). Let's mask the reflectivity data using the polarimetric variables to retain only approximately spherical echoes (this is not actually a good quality-control technique -- see http://journals.ametsoc.org/doi/abs/10.1175/JTECH-D-13-00073.1 -- but it is okay as a simple illustration).
 
-# In[5]:
+# In[ ]:
 
 refl_grid = radar.get_field(0, 'reflectivity')
 print refl_grid[0]
@@ -111,7 +111,7 @@ qcrefl_grid = ma.masked_where(notweather, refl_grid)
 print qcrefl_grid[0]
 
 
-# In[6]:
+# In[ ]:
 
 # let's create a new object containing only sweep=0 so we can add the QC'ed ref to it for plotting
 qced = radar.extract_sweeps([0])
